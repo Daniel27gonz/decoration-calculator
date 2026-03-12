@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Calculator, History, TrendingUp, Sparkles, MessageCircle, Lock, ShoppingBag, DollarSign, CalendarDays, BarChart3, FileText, ChevronRight } from 'lucide-react';
+import { Calculator, Package, History, TrendingUp, Sparkles, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useQuote } from '@/contexts/QuoteContext';
@@ -10,70 +10,25 @@ import { PendingApproval } from '@/components/PendingApproval';
 import { useEffect, useMemo } from 'react';
 import { getCurrencyByCode } from '@/lib/currencies';
 
-const activeFeatures = [
-  {
-    icon: Calculator,
-    title: 'Calcular',
-    description: 'Calcula costos y precios de tu evento',
-    href: '/calculator',
-  },
-  {
-    icon: History,
-    title: 'Historial',
-    description: 'Cotizaciones guardadas',
-    href: '/history',
-  },
-];
-
-const lockedFeatures = [
-  {
-    icon: FileText,
-    title: 'Cotización (PDF)',
-    description: 'Cotización profesional en PDF',
-  },
-  {
-    icon: ShoppingBag,
-    title: 'Pedidos de clientes',
-    description: 'Guarda cada pedido y revisa qué decoraciones tienes pendientes.',
-  },
-  {
-    icon: DollarSign,
-    title: 'Anticipos',
-    description: 'Registra cuánto te pagaron y cuánto falta por cobrar.',
-  },
-  {
-    icon: CalendarDays,
-    title: 'Agenda de eventos',
-    description: 'Organiza las fechas de tus eventos y evita cruzar pedidos.',
-  },
-  {
-    icon: BarChart3,
-    title: 'Ingresos y gastos',
-    description: 'Registra lo que gastas en materiales y lo que entra de cada decoración.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Resumen del mes',
-    description: 'Mira cuánto dinero ganaste realmente en el mes.',
-  },
-];
-
 export default function Home() {
   const navigate = useNavigate();
   const { quotes, calculateCosts } = useQuote();
   const { user, profile, loading, isApproved, approvalStatus, isAdmin } = useAuth();
   
+  // Redirect to auth if not logged in
   useEffect(() => {
     if (!loading && !user) {
       navigate('/auth');
     }
   }, [user, loading, navigate]);
 
+  // Obtener el símbolo de moneda del perfil del usuario
   const currencySymbol = useMemo(() => {
     const currency = getCurrencyByCode(profile?.currency || 'USD');
     return currency?.symbol || '$';
   }, [profile?.currency]);
 
+  // Calcular ingresos proyectados usando la misma lógica que calculateCosts
   const totalRevenue = useMemo(() => {
     return quotes.reduce((sum, quote) => {
       const costs = calculateCosts(quote);
@@ -81,6 +36,31 @@ export default function Home() {
     }, 0);
   }, [quotes, calculateCosts]);
 
+  const features = [
+    {
+      icon: Calculator,
+      title: 'Nueva Cotización',
+      description: 'Calcula costos y precios de tu evento',
+      href: '/calculator',
+      color: 'bg-rose-light text-rose-dark',
+    },
+    {
+      icon: Package,
+      title: 'Paquetes',
+      description: 'Plantillas predefinidas para agilizar',
+      href: '/packages',
+      color: 'bg-lavender-light text-accent-foreground',
+    },
+    {
+      icon: History,
+      title: 'Historial',
+      description: `${quotes.length} cotizaciones guardadas`,
+      href: '/history',
+      color: 'bg-secondary text-secondary-foreground',
+    },
+  ];
+
+  // Show loading or nothing while checking auth
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -96,28 +76,29 @@ export default function Home() {
     return null;
   }
 
+  // Show pending approval screen for non-approved users (admins bypass this)
   if (!isAdmin && approvalStatus && !isApproved) {
     return <PendingApproval status={approvalStatus as 'pending' | 'rejected'} />;
   }
 
   return (
     <div className="min-h-screen pb-24 md:pb-8">
-      {/* Hero Section */}
-      <section className="gradient-hero pt-20 pb-8 px-4">
+      {/* Hero Section - Full Screen */}
+      <section className="gradient-hero min-h-screen flex items-center justify-center px-4">
         <div className="container max-w-4xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card shadow-soft">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium">Calculadora para decoradoras</span>
           </div>
           
-          <h1 className="font-display text-3xl md:text-5xl font-bold leading-tight">
+          <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight">
             Calculadora para
             <span className="text-gradient block">Decoradoras de Globos</span>
           </h1>
           
-          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
             Calcula el precio perfecto para tus decoraciones, 
-            visualiza tu ganancia y envía cotizaciones profesionales.
+            visualiza tu ganancia y envía cotizaciones profesionales en minutos.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
@@ -152,7 +133,7 @@ export default function Home() {
 
       {/* Quick Stats */}
       {quotes.length > 0 && (
-        <section className="container max-w-4xl mx-auto px-4 mt-6">
+        <section className="container max-w-4xl mx-auto px-4 mt-8">
           <Card elevated>
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
@@ -169,48 +150,23 @@ export default function Home() {
         </section>
       )}
 
-      {/* Active Features */}
-      <section className="container max-w-4xl mx-auto px-4 mt-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {activeFeatures.map(({ icon: Icon, title, description, href }) => (
+      {/* Features Grid */}
+      <section className="container max-w-4xl mx-auto px-4 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {features.map(({ icon: Icon, title, description, href, color }) => (
             <Link key={href} to={href}>
-              <Card className="h-full hover:scale-[1.02] transition-transform duration-300 border-primary/20">
-                <CardContent className="p-5 flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-rose-light flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-5 h-5 text-primary" />
+              <Card className="h-full hover:scale-[1.02] transition-transform duration-300">
+                <CardContent className="p-6 space-y-4">
+                  <div className={`w-12 h-12 rounded-xl ${color} flex items-center justify-center`}>
+                    <Icon className="w-6 h-6" />
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-display text-base font-semibold text-foreground">{title}</h3>
-                    <p className="text-xs text-muted-foreground truncate">{description}</p>
+                  <div>
+                    <h3 className="font-display text-lg font-semibold">{title}</h3>
+                    <p className="text-sm text-muted-foreground">{description}</p>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                 </CardContent>
               </Card>
             </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Locked Features - Próximamente */}
-      <section className="container max-w-4xl mx-auto px-4 mt-8 mb-8">
-        <h2 className="font-display text-lg font-semibold text-foreground mb-3">Próximamente</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {lockedFeatures.map(({ icon: Icon, title, description }) => (
-            <Card key={title} className="h-full opacity-60 cursor-not-allowed border-border">
-              <CardContent className="p-5 flex items-center gap-4">
-                <div className="w-11 h-11 rounded-xl bg-muted flex items-center justify-center flex-shrink-0 relative">
-                  <Icon className="w-5 h-5 text-muted-foreground" />
-                  <Lock className="w-3 h-3 text-muted-foreground absolute -bottom-0.5 -right-0.5" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-display text-base font-semibold text-muted-foreground">{title}</h3>
-                    <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-muted text-muted-foreground">🔒</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground/70 line-clamp-2">{description}</p>
-                </div>
-              </CardContent>
-            </Card>
           ))}
         </div>
       </section>
