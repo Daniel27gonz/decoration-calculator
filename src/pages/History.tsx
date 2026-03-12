@@ -20,7 +20,7 @@ import QuotePdfPreview from '@/components/QuotePdfPreview';
 export default function History() {
   const navigate = useNavigate();
   const { quotes, deleteQuote, duplicateQuote, calculateCosts, saveQuote, loadQuotes } = useQuote();
-  const { user, profile, isApproved, approvalStatus, isAdmin, loading } = useAuth();
+  const { user, profile, loading } = useAuth();
   const { toast } = useToast();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedQuote, setSelectedQuote] = useState<Quote | null>(null);
@@ -108,10 +108,6 @@ export default function History() {
     return null;
   }
 
-  // Block non-approved users (admins bypass)
-  if (!isAdmin && approvalStatus && !isApproved) {
-    return <PendingApproval status={approvalStatus as 'pending' | 'rejected'} />;
-  }
 
   return (
     <div className="min-h-screen pb-24 md:pb-8 md:pt-24">
