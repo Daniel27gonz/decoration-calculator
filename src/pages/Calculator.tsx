@@ -64,6 +64,7 @@ export default function Calculator() {
     saveQuote, 
     calculateCosts, 
     defaultHourlyRate,
+    packages 
   } = useQuote();
 
   const [currency, setCurrency] = useState(profile?.currency || 'USD');
@@ -92,13 +93,36 @@ export default function Calculator() {
   };
 
   const editId = searchParams.get('edit');
+  const packageId = searchParams.get('package');
 
   const [quote, setQuote] = useState<Quote>(() => {
     if (editId) {
       const existing = quotes.find(q => q.id === editId);
       if (existing) return existing;
     }
-    return createEmptyQuote(defaultHourlyRate);
+    
+    const newQuote = createEmptyQuote(defaultHourlyRate);
+    
+    if (packageId) {
+      const pkg = packages.find(p => p.id === packageId);
+      if (pkg) {
+        newQuote.balloons = [{
+          id: crypto.randomUUID(),
+          description: `Globos para ${pkg.name}`,
+          pricePerUnit: 0.5,
+          quantity: pkg.estimatedBalloons,
+        }];
+        newQuote.materials = pkg.estimatedMaterials.map(m => ({
+          ...m,
+          id: crypto.randomUUID(),
+        }));
+        newQuote.timePhases = newQuote.timePhases.map(p => 
+          p.phase === 'setup' ? { ...p, hours: pkg.estimatedHours } : p
+        );
+      }
+    }
+    
+    return newQuote;
   });
 
   const summary = calculateCosts(quote);
