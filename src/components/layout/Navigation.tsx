@@ -16,7 +16,6 @@ const mobileNavItems = [
 const desktopNavItems = [
   { path: '/', icon: Home, label: 'Inicio' },
   { path: '/calculator', icon: Calculator, label: 'Cotizar' },
-  { path: '/packages', icon: Package, label: 'Paquetes' },
   { path: '/history', icon: History, label: 'Historial' },
   { path: '/settings', icon: Settings, label: 'Ajustes' },
 ];
