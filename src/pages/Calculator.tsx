@@ -64,7 +64,6 @@ export default function Calculator() {
     saveQuote, 
     calculateCosts, 
     defaultHourlyRate,
-    packages 
   } = useQuote();
 
   const [currency, setCurrency] = useState(profile?.currency || 'USD');
