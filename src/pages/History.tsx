@@ -108,10 +108,6 @@ export default function History() {
     return null;
   }
 
-  // Block non-approved users (admins bypass)
-  if (!isAdmin && approvalStatus && !isApproved) {
-    return <PendingApproval status={approvalStatus as 'pending' | 'rejected'} />;
-  }
 
   return (
     <div className="min-h-screen pb-24 md:pb-8 md:pt-24">
