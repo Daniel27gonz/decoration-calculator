@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Calculator, TrendingUp, Sparkles, MessageCircle } from 'lucide-react';
+import { Calculator, Package, History, TrendingUp, Sparkles, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useQuote } from '@/contexts/QuoteContext';
@@ -15,17 +15,20 @@ export default function Home() {
   const { quotes, calculateCosts } = useQuote();
   const { user, profile, loading, isApproved, approvalStatus, isAdmin } = useAuth();
   
+  // Redirect to auth if not logged in
   useEffect(() => {
     if (!loading && !user) {
       navigate('/auth');
     }
   }, [user, loading, navigate]);
 
+  // Obtener el símbolo de moneda del perfil del usuario
   const currencySymbol = useMemo(() => {
     const currency = getCurrencyByCode(profile?.currency || 'USD');
     return currency?.symbol || '$';
   }, [profile?.currency]);
 
+  // Calcular ingresos proyectados usando la misma lógica que calculateCosts
   const totalRevenue = useMemo(() => {
     return quotes.reduce((sum, quote) => {
       const costs = calculateCosts(quote);
@@ -33,6 +36,31 @@ export default function Home() {
     }, 0);
   }, [quotes, calculateCosts]);
 
+  const features = [
+    {
+      icon: Calculator,
+      title: 'Nueva Cotización',
+      description: 'Calcula costos y precios de tu evento',
+      href: '/calculator',
+      color: 'bg-rose-light text-rose-dark',
+    },
+    {
+      icon: Package,
+      title: 'Paquetes',
+      description: 'Plantillas predefinidas para agilizar',
+      href: '/packages',
+      color: 'bg-lavender-light text-accent-foreground',
+    },
+    {
+      icon: History,
+      title: 'Historial',
+      description: `${quotes.length} cotizaciones guardadas`,
+      href: '/history',
+      color: 'bg-secondary text-secondary-foreground',
+    },
+  ];
+
+  // Show loading or nothing while checking auth
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -44,30 +72,33 @@ export default function Home() {
     );
   }
 
-  if (!user) return null;
+  if (!user) {
+    return null;
+  }
 
+  // Show pending approval screen for non-approved users (admins bypass this)
   if (!isAdmin && approvalStatus && !isApproved) {
     return <PendingApproval status={approvalStatus as 'pending' | 'rejected'} />;
   }
 
   return (
-    <div className="min-h-screen pb-8">
-      {/* Hero Section */}
-      <section className="gradient-hero pt-8 pb-8 px-4">
+    <div className="min-h-screen pb-24 md:pb-8">
+      {/* Hero Section - Full Screen */}
+      <section className="gradient-hero min-h-screen flex items-center justify-center px-4">
         <div className="container max-w-4xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card shadow-soft">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium">Calculadora para decoradoras</span>
           </div>
           
-          <h1 className="font-display text-3xl md:text-5xl font-bold leading-tight">
+          <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight">
             Calculadora para
             <span className="text-gradient block">Decoradoras de Globos</span>
           </h1>
           
-          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
             Calcula el precio perfecto para tus decoraciones, 
-            visualiza tu ganancia y envía cotizaciones profesionales.
+            visualiza tu ganancia y envía cotizaciones profesionales en minutos.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
@@ -102,7 +133,7 @@ export default function Home() {
 
       {/* Quick Stats */}
       {quotes.length > 0 && (
-        <section className="container max-w-4xl mx-auto px-4 mt-6">
+        <section className="container max-w-4xl mx-auto px-4 mt-8">
           <Card elevated>
             <CardContent className="p-6">
               <div className="flex items-center gap-4">
@@ -118,6 +149,27 @@ export default function Home() {
           </Card>
         </section>
       )}
+
+      {/* Features Grid */}
+      <section className="container max-w-4xl mx-auto px-4 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {features.map(({ icon: Icon, title, description, href, color }) => (
+            <Link key={href} to={href}>
+              <Card className="h-full hover:scale-[1.02] transition-transform duration-300">
+                <CardContent className="p-6 space-y-4">
+                  <div className={`w-12 h-12 rounded-xl ${color} flex items-center justify-center`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-semibold">{title}</h3>
+                    <p className="text-sm text-muted-foreground">{description}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       {/* Decorative Elements */}
       <div className="fixed top-20 right-10 text-6xl opacity-20 animate-float pointer-events-none hidden md:block">
