@@ -98,29 +98,7 @@ export default function Calculator() {
       const existing = quotes.find(q => q.id === editId);
       if (existing) return existing;
     }
-    
-    const newQuote = createEmptyQuote(defaultHourlyRate);
-    
-    if (packageId) {
-      const pkg = packages.find(p => p.id === packageId);
-      if (pkg) {
-        newQuote.balloons = [{
-          id: crypto.randomUUID(),
-          description: `Globos para ${pkg.name}`,
-          pricePerUnit: 0.5,
-          quantity: pkg.estimatedBalloons,
-        }];
-        newQuote.materials = pkg.estimatedMaterials.map(m => ({
-          ...m,
-          id: crypto.randomUUID(),
-        }));
-        newQuote.timePhases = newQuote.timePhases.map(p => 
-          p.phase === 'setup' ? { ...p, hours: pkg.estimatedHours } : p
-        );
-      }
-    }
-    
-    return newQuote;
+    return createEmptyQuote(defaultHourlyRate);
   });
 
   const summary = calculateCosts(quote);
