@@ -10,7 +10,7 @@ import PWAInstallPopup from "@/components/PWAInstallPopup";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Calculator from "./pages/Calculator";
-import Packages from "./pages/Packages";
+
 import Finances from "./pages/Finances";
 import History from "./pages/History";
 import Settings from "./pages/Settings";
