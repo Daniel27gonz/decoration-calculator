@@ -44,9 +44,39 @@ export function Navigation() {
       <div className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-lg border-b border-border shadow-sm">
         <div className="container flex items-center justify-between h-14 px-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center">
-              <Calculator className="w-4 h-4 text-primary-foreground" />
-            </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center focus:outline-none">
+                  <Menu className="w-4 h-4 text-primary-foreground" />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-56">
+                <DropdownMenuItem disabled className="flex items-center gap-2 opacity-50">
+                  <ShoppingBag className="w-4 h-4" />
+                  <span>🔒 Pedidos de clientes</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem disabled className="flex items-center gap-2 opacity-50">
+                  <DollarSign className="w-4 h-4" />
+                  <span>🔒 Anticipos</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem disabled className="flex items-center gap-2 opacity-50">
+                  <Calendar className="w-4 h-4" />
+                  <span>🔒 Agenda de eventos</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem disabled className="flex items-center gap-2 opacity-50">
+                  <BarChart3 className="w-4 h-4" />
+                  <span>🔒 Ingresos y gastos</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem disabled className="flex items-center gap-2 opacity-50">
+                  <ClipboardList className="w-4 h-4" />
+                  <span>🔒 Resumen del mes</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem disabled className="flex items-center gap-2 opacity-50">
+                  <FileText className="w-4 h-4" />
+                  <span>🔒 Cotización</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <span className="font-display text-lg font-semibold text-foreground">
               {location.pathname === '/' && 'Inicio'}
               {location.pathname === '/calculator' && 'Cotizar'}
