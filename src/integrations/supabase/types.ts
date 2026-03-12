@@ -14,7 +14,75 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      quotes: {
+        Row: {
+          balloons: Json
+          client_name: string
+          client_phone: string | null
+          created_at: string
+          event_date: string | null
+          event_type: string | null
+          extras: Json
+          furniture_items: Json
+          id: string
+          margin_percentage: number
+          materials: Json
+          notes: string | null
+          reusable_materials_used: Json
+          time_phases: Json
+          tool_wear_percentage: number
+          transport_items: Json
+          updated_at: string
+          user_id: string
+          wastage_percentage: number
+          workers: Json
+        }
+        Insert: {
+          balloons?: Json
+          client_name?: string
+          client_phone?: string | null
+          created_at?: string
+          event_date?: string | null
+          event_type?: string | null
+          extras?: Json
+          furniture_items?: Json
+          id?: string
+          margin_percentage?: number
+          materials?: Json
+          notes?: string | null
+          reusable_materials_used?: Json
+          time_phases?: Json
+          tool_wear_percentage?: number
+          transport_items?: Json
+          updated_at?: string
+          user_id: string
+          wastage_percentage?: number
+          workers?: Json
+        }
+        Update: {
+          balloons?: Json
+          client_name?: string
+          client_phone?: string | null
+          created_at?: string
+          event_date?: string | null
+          event_type?: string | null
+          extras?: Json
+          furniture_items?: Json
+          id?: string
+          margin_percentage?: number
+          materials?: Json
+          notes?: string | null
+          reusable_materials_used?: Json
+          time_phases?: Json
+          tool_wear_percentage?: number
+          transport_items?: Json
+          updated_at?: string
+          user_id?: string
+          wastage_percentage?: number
+          workers?: Json
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

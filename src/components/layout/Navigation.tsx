@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Calculator, Package, History, Settings, User, Wallet, Palette, Database } from 'lucide-react';
+import { Home, Calculator, History, Settings, User, Wallet, Palette, Database } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/contexts/AuthContext';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -8,7 +8,6 @@ import { useIsMobile } from '@/hooks/use-mobile';
 const mobileNavItems = [
   { path: '/', icon: Home, label: 'Inicio' },
   { path: '/calculator', icon: Calculator, label: 'Cotizar' },
-  { path: '/packages', icon: Package, label: 'Paquetes' },
   { path: '/history', icon: History, label: 'Historial' },
   { path: '/settings', icon: Settings, label: 'Ajustes' },
 ];
@@ -17,7 +16,6 @@ const mobileNavItems = [
 const desktopNavItems = [
   { path: '/', icon: Home, label: 'Inicio' },
   { path: '/calculator', icon: Calculator, label: 'Cotizar' },
-  { path: '/packages', icon: Package, label: 'Paquetes' },
   { path: '/history', icon: History, label: 'Historial' },
   { path: '/settings', icon: Settings, label: 'Ajustes' },
 ];
@@ -46,7 +44,7 @@ export function Navigation() {
             <span className="font-display text-lg font-semibold text-foreground">
               {location.pathname === '/' && 'Inicio'}
               {location.pathname === '/calculator' && 'Cotizar'}
-              {location.pathname === '/packages' && 'Paquetes'}
+              
               {location.pathname === '/finances' && 'Finanzas'}
               {location.pathname === '/history' && 'Historial'}
               {location.pathname === '/settings' && 'Ajustes'}
