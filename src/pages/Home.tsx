@@ -15,6 +15,7 @@ export default function Home() {
   const navigate = useNavigate();
   const { quotes, calculateCosts } = useQuote();
   const { user, profile, loading, isApproved, approvalStatus, isAdmin } = useAuth();
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   
   // Redirect to auth if not logged in
   useEffect(() => {
