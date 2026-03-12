@@ -1,8 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Calculator, History, Settings, User, Wallet, Palette, Database } from 'lucide-react';
+import { Home, Calculator, History, Settings, User, Wallet, Palette, Database, Menu, Lock, ShoppingBag, DollarSign, Calendar, BarChart3, FileText, ClipboardList } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/contexts/AuthContext';
 import { useIsMobile } from '@/hooks/use-mobile';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 // Mobile bottom nav items (5 items for mobile)
 const mobileNavItems = [
