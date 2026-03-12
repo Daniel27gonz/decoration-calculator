@@ -81,6 +81,15 @@ export default function Home() {
     return <PendingApproval status={approvalStatus as 'pending' | 'rejected'} />;
   }
 
+  const lockedFeatures = [
+    { emoji: '🔒', label: 'Pedidos de clientes' },
+    { emoji: '🔒', label: 'Anticipos' },
+    { emoji: '🔒', label: 'Agenda de eventos' },
+    { emoji: '🔒', label: 'Ingresos y gastos' },
+    { emoji: '🔒', label: 'Resumen del mes' },
+    { emoji: '🔒', label: 'Cotización profesional en PDF' },
+  ];
+
   return (
     <div className="min-h-screen pb-24 md:pb-8">
       {/* Hero Section - Full Screen */}
