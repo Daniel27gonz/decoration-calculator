@@ -20,7 +20,7 @@ import QuotePdfPreview from '@/components/QuotePdfPreview';
 export default function History() {
   const navigate = useNavigate();
   const { quotes, deleteQuote, duplicateQuote, calculateCosts, saveQuote, loadQuotes } = useQuote();
-  const { user, profile, isApproved, approvalStatus, isAdmin, loading } = useAuth();
+  const { user, profile, loading } = useAuth();
   const { toast } = useToast();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedQuote, setSelectedQuote] = useState<Quote | null>(null);
