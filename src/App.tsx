@@ -21,18 +21,27 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const pageTitles: Record<string, string> = {
+  "/": "Inicio",
+  "/calculator": "Cotizar",
+  "/finances": "Mi Dinero",
+  "/history": "Historial",
+  "/settings": "Configuración",
+  "/design": "Cotización PDF",
+  "/admin/database": "Database",
+  "/install": "Instalar",
+};
+
 function AppLayout() {
   const location = useLocation();
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const isAuthPage = location.pathname === "/auth";
 
-  // Don't show sidebar on auth page or when not logged in
-  if (isAuthPage || !user) {
+  if (isAuthPage || (!loading && !user)) {
     return (
       <Routes>
         <Route path="/auth" element={<Auth />} />
-        <Route path="/" element={<Index />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<Auth />} />
       </Routes>
     );
   }
@@ -45,17 +54,10 @@ function AppLayout() {
           <header className="h-14 flex items-center border-b border-border bg-card/95 backdrop-blur-lg sticky top-0 z-50 px-4 gap-3">
             <SidebarTrigger />
             <span className="font-display text-lg font-semibold text-foreground">
-              {location.pathname === "/" && "Inicio"}
-              {location.pathname === "/calculator" && "Cotizar"}
-              {location.pathname === "/finances" && "Mi Dinero"}
-              {location.pathname === "/history" && "Historial"}
-              {location.pathname === "/settings" && "Configuración"}
-              {location.pathname === "/design" && "Cotización PDF"}
-              {location.pathname === "/admin/database" && "Database"}
-              {location.pathname === "/install" && "Instalar"}
+              {pageTitles[location.pathname] || ""}
             </span>
           </header>
-          <main className="flex-1">
+          <main className="flex-1 overflow-auto">
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/calculator" element={<Calculator />} />
