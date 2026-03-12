@@ -7,8 +7,9 @@ import { useAuth } from '@/contexts/AuthContext';
 import InstallPrompt from '@/components/InstallPrompt';
 import FirstLoginInstallPrompt from '@/components/FirstLoginInstallPrompt';
 import { PendingApproval } from '@/components/PendingApproval';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { getCurrencyByCode } from '@/lib/currencies';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Home() {
   const navigate = useNavigate();
