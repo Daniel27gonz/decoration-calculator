@@ -96,18 +96,39 @@ export default function Home() {
       {/* Top section with locked features sidebar + hero */}
       <section className="gradient-hero min-h-screen flex flex-col md:flex-row">
         {/* Left Column - Locked Features */}
-        <aside className="w-full md:w-64 lg:w-72 shrink-0 pt-20 md:pt-20 px-4 md:pl-6 md:pr-2">
-          <div className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border shadow-soft p-4 space-y-2">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">Próximamente</h3>
-            {lockedFeatures.map((feature, idx) => (
-              <div
-                key={idx}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-muted/50 border border-border/50 opacity-60 cursor-not-allowed select-none"
-              >
-                <span className="text-base">{feature.emoji}</span>
-                <span className="text-sm font-medium text-muted-foreground">{feature.label}</span>
+        <aside className={`shrink-0 pt-20 md:pt-20 px-2 transition-all duration-300 ${sidebarOpen ? 'w-full md:w-64 lg:w-72' : 'w-12 md:w-14'}`}>
+          <div className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border shadow-soft p-2 relative">
+            <button
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="absolute -right-3 top-3 z-10 w-6 h-6 rounded-full bg-card border border-border shadow-soft flex items-center justify-center hover:bg-muted transition-colors"
+            >
+              {sidebarOpen ? <ChevronLeft className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
+            </button>
+            {sidebarOpen && (
+              <>
+                <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-2 pt-2">Próximamente</h3>
+                <div className="space-y-2">
+                  {lockedFeatures.map((feature, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-muted/50 border border-border/50 opacity-60 cursor-not-allowed select-none"
+                    >
+                      <span className="text-base">{feature.emoji}</span>
+                      <span className="text-sm font-medium text-muted-foreground">{feature.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+            {!sidebarOpen && (
+              <div className="space-y-2 pt-8">
+                {lockedFeatures.map((feature, idx) => (
+                  <div key={idx} className="flex items-center justify-center py-2 opacity-60 cursor-not-allowed" title={feature.label}>
+                    <span className="text-base">{feature.emoji}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         </aside>
 
