@@ -156,6 +156,7 @@ export default function Home() {
             ¡Hola, {profile?.name || profile?.business_name || user.email?.split('@')[0]}! 👋
           </p>
         </div>
+        </div>
       </section>
 
       {/* Quick Stats */}
