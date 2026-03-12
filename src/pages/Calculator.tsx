@@ -92,7 +92,6 @@ export default function Calculator() {
   };
 
   const editId = searchParams.get('edit');
-  const packageId = searchParams.get('package');
 
   const [quote, setQuote] = useState<Quote>(() => {
     if (editId) {
