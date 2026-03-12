@@ -81,37 +81,10 @@ export default function Home() {
     return <PendingApproval status={approvalStatus as 'pending' | 'rejected'} />;
   }
 
-  const lockedFeatures = [
-    { emoji: '🔒', label: 'Pedidos de clientes' },
-    { emoji: '🔒', label: 'Anticipos' },
-    { emoji: '🔒', label: 'Agenda de eventos' },
-    { emoji: '🔒', label: 'Ingresos y gastos' },
-    { emoji: '🔒', label: 'Resumen del mes' },
-    { emoji: '🔒', label: 'Cotización profesional en PDF' },
-  ];
-
   return (
     <div className="min-h-screen pb-24 md:pb-8">
-      {/* Top section with locked features sidebar + hero */}
-      <section className="gradient-hero min-h-screen flex flex-col md:flex-row">
-        {/* Left Column - Locked Features */}
-        <aside className="w-full md:w-64 lg:w-72 shrink-0 pt-20 md:pt-20 px-4 md:pl-6 md:pr-2">
-          <div className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border shadow-soft p-4 space-y-2">
-            <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">Próximamente</h3>
-            {lockedFeatures.map((feature, idx) => (
-              <div
-                key={idx}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-muted/50 border border-border/50 opacity-60 cursor-not-allowed select-none"
-              >
-                <span className="text-base">{feature.emoji}</span>
-                <span className="text-sm font-medium text-muted-foreground">{feature.label}</span>
-              </div>
-            ))}
-          </div>
-        </aside>
-
-        {/* Hero Content */}
-        <div className="flex-1 flex items-center justify-center px-4">
+      {/* Hero Section - Full Screen */}
+      <section className="gradient-hero min-h-screen flex items-center justify-center px-4">
         <div className="container max-w-4xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card shadow-soft">
             <Sparkles className="w-4 h-4 text-primary" />
@@ -155,7 +128,6 @@ export default function Home() {
           <p className="text-sm text-muted-foreground pt-2">
             ¡Hola, {profile?.name || profile?.business_name || user.email?.split('@')[0]}! 👋
           </p>
-        </div>
         </div>
       </section>
 
