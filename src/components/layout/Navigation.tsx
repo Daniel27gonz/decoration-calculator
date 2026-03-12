@@ -44,7 +44,7 @@ export function Navigation() {
             <span className="font-display text-lg font-semibold text-foreground">
               {location.pathname === '/' && 'Inicio'}
               {location.pathname === '/calculator' && 'Cotizar'}
-              {location.pathname === '/packages' && 'Paquetes'}
+              
               {location.pathname === '/finances' && 'Finanzas'}
               {location.pathname === '/history' && 'Historial'}
               {location.pathname === '/settings' && 'Ajustes'}
