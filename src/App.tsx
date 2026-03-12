@@ -10,7 +10,7 @@ import PWAInstallPopup from "@/components/PWAInstallPopup";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Calculator from "./pages/Calculator";
-import Packages from "./pages/Packages";
+
 import Finances from "./pages/Finances";
 import History from "./pages/History";
 import Settings from "./pages/Settings";
@@ -34,7 +34,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<Auth />} />
               <Route path="/calculator" element={<Calculator />} />
-              <Route path="/packages" element={<Packages />} />
+              
               <Route path="/finances" element={<Finances />} />
               <Route path="/history" element={<History />} />
               <Route path="/settings" element={<Settings />} />
