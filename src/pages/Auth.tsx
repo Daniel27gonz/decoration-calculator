@@ -122,7 +122,7 @@ export default function Auth() {
             {isLogin && (
               <div className="mb-4 p-3 bg-accent/50 border border-border rounded-lg">
               <div className="text-sm text-foreground space-y-1">
-                  <p className="font-bold">🔐 Primer acceso</p>
+                  <p className="font-bold text-primary">🔐 ¿Primer acceso?</p>
                   <p>Usa el correo de tu compra y tu número de teléfono con código de país como contraseña.</p>
                   <p>Ejemplo: <span className="font-semibold">521234567890</span></p>
                 </div>
