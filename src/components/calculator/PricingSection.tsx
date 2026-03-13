@@ -151,7 +151,7 @@ export function PricingSection({
               <TrendingUp className="w-5 h-5 text-profit-high" />
             </div>
             <span className="text-sm font-medium text-muted-foreground leading-tight">
-              Ganancia en este evento
+              Ganancia de esta decoración
             </span>
           </div>
           <p className={cn(
