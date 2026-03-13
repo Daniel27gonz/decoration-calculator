@@ -165,19 +165,6 @@ export default function Calculator() {
 
       <main className="container max-w-4xl mx-auto px-4 py-6 space-y-6">
 
-        {/* Currency Selector */}
-        <Card>
-          <CardHeader className="pb-4">
-            <CardTitle className="flex items-center gap-2">
-              <span className="text-2xl">💱</span>
-              Moneda
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <CurrencySelector value={currency} onChange={handleCurrencyChange} />
-          </CardContent>
-        </Card>
-
         {/* Client Info */}
         <Card>
           <CardHeader className="pb-4">
