@@ -103,8 +103,8 @@ export function PricingSection({
 
       {/* Dashboard Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {/* Costo por evento */}
-        <div className="relative rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
+        {/* Costo de la decoración — neutral/gris */}
+        <div className="relative rounded-2xl border border-border bg-muted/30 p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
           <div className="flex items-center gap-2.5 mb-3">
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-muted">
               <Receipt className="w-5 h-5 text-muted-foreground" />
@@ -113,7 +113,7 @@ export function PricingSection({
               Costo de la decoración
             </span>
           </div>
-          <p className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground tabular-nums leading-none">
+          <p className="text-4xl sm:text-5xl font-bold tracking-tight text-muted-foreground tabular-nums leading-none">
             {formatCurrency(summary.totalCost)}
           </p>
           <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
@@ -121,7 +121,7 @@ export function PricingSection({
           </p>
         </div>
 
-        {/* Precio sugerido al cliente - DESTACADA */}
+        {/* Precio sugerido al cliente — color principal destacado */}
         <div className="relative rounded-2xl border-2 border-primary bg-primary/5 p-5 sm:p-6 shadow-card transition-all duration-300 hover:shadow-elevated ring-1 ring-primary/10">
           <div className="absolute top-3 right-3">
             <span className="text-[10px] font-bold uppercase tracking-widest bg-primary text-primary-foreground px-2.5 py-1 rounded-full">
@@ -132,11 +132,11 @@ export function PricingSection({
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/15">
               <BadgeDollarSign className="w-5 h-5 text-primary" />
             </div>
-            <span className="text-sm font-medium text-muted-foreground leading-tight">
+            <span className="text-sm font-medium text-primary leading-tight">
               Precio sugerido al cliente
             </span>
           </div>
-          <p className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground tabular-nums leading-none">
+          <p className="text-4xl sm:text-5xl font-bold tracking-tight text-primary tabular-nums leading-none">
             {formatCurrency(summary.finalPrice)}
           </p>
           <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
@@ -144,13 +144,13 @@ export function PricingSection({
           </p>
         </div>
 
-        {/* Ganancia en este evento */}
-        <div className="relative rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
+        {/* Ganancia de esta decoración — verde */}
+        <div className="relative rounded-2xl border border-profit-high/30 bg-profit-high/5 p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
           <div className="flex items-center gap-2.5 mb-3">
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-profit-high/10">
               <TrendingUp className="w-5 h-5 text-profit-high" />
             </div>
-            <span className="text-sm font-medium text-muted-foreground leading-tight">
+            <span className="text-sm font-medium text-profit-high leading-tight">
               Ganancia de esta decoración
             </span>
           </div>
@@ -161,7 +161,7 @@ export function PricingSection({
             {formatCurrency(netProfit)}
           </p>
           <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
-            Precio al cliente ({formatCurrency(summary.finalPrice)}) − costo del evento ({formatCurrency(summary.totalCost)})
+            Precio al cliente ({formatCurrency(summary.finalPrice)}) − costo ({formatCurrency(summary.totalCost)})
           </p>
         </div>
       </div>
