@@ -256,7 +256,7 @@ export default function Auth() {
 
         {/* Footer */}
         <p className="text-center text-xs text-muted-foreground">
-          Hecho con 💕 para decoradoras de globos
+          Hecho con 💕 para decoradoras
         </p>
       </div>
 
