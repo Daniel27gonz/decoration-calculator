@@ -18,12 +18,11 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 
-const activeItems = [
+const activeItemsBefore = [
   { title: "Inicio", url: "/", icon: Home },
   { title: "Calculadora", url: "/calculator", icon: Calculator },
-  { title: "Cotización PDF", url: "/design", icon: FileText },
   { title: "Historial", url: "/history", icon: History },
-  { title: "Configuración", url: "/settings", icon: Settings },
+  { title: "Cotización PDF", url: "/design", icon: FileText },
 ];
 
 const lockedItems = [
@@ -32,6 +31,10 @@ const lockedItems = [
   { title: "Agenda de eventos", icon: CalendarDays, description: "Agenda de decoraciones" },
   { title: "Ingresos y gastos", icon: BarChart3, description: "Control de ingresos y gastos" },
   { title: "Resumen del mes", icon: TrendingUp, description: "Resumen del negocio" },
+];
+
+const activeItemsAfter = [
+  { title: "Configuración", url: "/settings", icon: Settings },
 ];
 
 export function AppSidebar() {
@@ -47,7 +50,7 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
-              {activeItems.map((item) => (
+              {activeItemsBefore.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <NavLink
@@ -67,6 +70,21 @@ export function AppSidebar() {
                   <SidebarMenuButton className="px-3 py-2.5 pointer-events-none">
                     <item.icon className="mr-3 h-5 w-5 flex-shrink-0" />
                     {!collapsed && <span className="text-sm">{item.title}</span>}
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+              {activeItemsAfter.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <NavLink
+                      to={item.url}
+                      end={item.url === "/"}
+                      className="hover:bg-rose-light/50 rounded-lg px-3 py-2.5"
+                      activeClassName="bg-rose-light text-primary font-semibold"
+                    >
+                      <item.icon className="mr-3 h-5 w-5 flex-shrink-0" />
+                      {!collapsed && <span className="text-sm">{item.title}</span>}
+                    </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
