@@ -12,6 +12,7 @@ import { ReusableMaterialsSection } from '@/components/calculator/ReusableMateri
 import { LaborSection } from '@/components/calculator/LaborSection';
 import { ExtrasSection } from '@/components/calculator/ExtrasSection';
 import { TransportSection } from '@/components/calculator/TransportSection';
+import { CostBreakdown } from '@/components/calculator/CostBreakdown';
 
 import { WastageSection } from '@/components/calculator/WastageSection';
 import { PricingSection } from '@/components/calculator/PricingSection';
