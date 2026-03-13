@@ -88,24 +88,6 @@ export default function Home() {
             </Button>
           </div>
 
-          {/* Quick Stats inline */}
-          {quotes.length > 0 && (
-            <div className="pt-4">
-              <Card elevated className="inline-block">
-                <CardContent className="p-4 sm:p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full gradient-primary flex items-center justify-center">
-                      <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
-                    </div>
-                    <div className="text-left">
-                      <p className="text-xs sm:text-sm text-muted-foreground">Ingresos proyectados</p>
-                      <p className="text-xl sm:text-2xl font-bold">{currencySymbol}{totalRevenue.toLocaleString('es-LA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          )}
 
           <p className="text-sm text-muted-foreground pt-2">
             ¡Hola, {profile?.name || profile?.business_name || user.email?.split('@')[0]}! 👋
