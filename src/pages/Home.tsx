@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Calculator, TrendingUp, Sparkles, MessageCircle } from 'lucide-react';
+import { Calculator, TrendingUp, Sparkles, MessageCircle, ArrowUpLeft, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useQuote } from '@/contexts/QuoteContext';
@@ -7,14 +7,16 @@ import { useAuth } from '@/contexts/AuthContext';
 import InstallPrompt from '@/components/InstallPrompt';
 import FirstLoginInstallPrompt from '@/components/FirstLoginInstallPrompt';
 import { PendingApproval } from '@/components/PendingApproval';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { getCurrencyByCode } from '@/lib/currencies';
+import { useSidebar } from '@/components/ui/sidebar';
 
 export default function Home() {
   const navigate = useNavigate();
   const { quotes, calculateCosts } = useQuote();
   const { user, profile, loading, isApproved, approvalStatus, isAdmin } = useAuth();
-  
+  const { setOpenMobile, isMobile } = useSidebar();
+  const [showMenuHint, setShowMenuHint] = useState(true);
   useEffect(() => {
     if (!loading && !user) {
       navigate('/auth');
@@ -55,6 +57,25 @@ export default function Home() {
       {/* Hero Section - fills available space */}
       <section className="gradient-hero flex-1 flex items-center justify-center px-4 py-6">
         <div className="w-full max-w-4xl mx-auto text-center space-y-5">
+          {/* Menu hint - animated arrow pointing to hamburger */}
+          {showMenuHint && (
+            <div 
+              className="flex items-center gap-2 justify-start animate-bounce cursor-pointer"
+              onClick={() => {
+                setShowMenuHint(false);
+                if (isMobile) setOpenMobile(true);
+              }}
+            >
+              <ArrowUpLeft className="w-6 h-6 text-primary" />
+              <div className="flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2">
+                <Menu className="w-4 h-4 text-primary" />
+                <span className="text-sm font-semibold text-primary">
+                  ¡Toca aquí para ver el menú!
+                </span>
+              </div>
+            </div>
+          )}
+
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card shadow-soft">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium">Calculadora para decoradoras</span>
