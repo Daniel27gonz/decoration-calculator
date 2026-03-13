@@ -21,6 +21,7 @@ import {
 const activeItems = [
   { title: "Inicio", url: "/", icon: Home },
   { title: "Calculadora", url: "/calculator", icon: Calculator },
+  { title: "Cotización PDF", url: "/design", icon: FileText },
   { title: "Historial", url: "/history", icon: History },
   { title: "Configuración", url: "/settings", icon: Settings },
 ];
