@@ -132,7 +132,7 @@ export function PricingSection({
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/15">
               <BadgeDollarSign className="w-5 h-5 text-primary" />
             </div>
-            <span className="text-sm font-semibold text-primary leading-tight">
+            <span className="text-base font-bold text-primary leading-tight">
               Precio sugerido al cliente
             </span>
           </div>
