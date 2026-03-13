@@ -78,19 +78,7 @@ const Design = () => {
     customNote: "",
   });
 
-  // Load profile data and design config when available
-  useEffect(() => {
-    if (profile) {
-      setTemplateData(prev => ({
-        ...prev,
-        businessName: profile.business_name || prev.businessName,
-        businessLogo: profile.logo_url || prev.businessLogo,
-        depositPercentage: (profile as any).design_deposit_percentage ?? prev.depositPercentage,
-        depositMessage: (profile as any).design_deposit_message || prev.depositMessage,
-        customNote: (profile as any).design_additional_notes || prev.customNote,
-      }));
-    }
-  }, [profile]);
+  // Profile data is no longer auto-loaded - user fills everything manually
 
   // Save design config to profile
   const saveDesignConfig = async () => {
