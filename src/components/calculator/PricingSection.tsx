@@ -109,7 +109,7 @@ export function PricingSection({
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-muted">
               <Receipt className="w-5 h-5 text-muted-foreground" />
             </div>
-            <span className="text-sm font-semibold text-muted-foreground leading-tight">
+            <span className="text-base font-bold text-muted-foreground leading-tight">
               Costo de la decoración
             </span>
           </div>
@@ -132,7 +132,7 @@ export function PricingSection({
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/15">
               <BadgeDollarSign className="w-5 h-5 text-primary" />
             </div>
-            <span className="text-sm font-semibold text-primary leading-tight">
+            <span className="text-base font-bold text-primary leading-tight">
               Precio sugerido al cliente
             </span>
           </div>
@@ -150,7 +150,7 @@ export function PricingSection({
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-profit-high/10">
               <TrendingUp className="w-5 h-5 text-profit-high" />
             </div>
-            <span className="text-sm font-semibold text-profit-high leading-tight">
+            <span className="text-base font-bold text-profit-high leading-tight">
               Ganancia de esta decoración
             </span>
           </div>
