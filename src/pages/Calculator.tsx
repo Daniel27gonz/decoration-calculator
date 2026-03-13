@@ -295,20 +295,7 @@ export default function Calculator() {
             <Save className="w-5 h-5" />
             Guardar Cotización
           </Button>
-          <Button variant="outline" size="lg" className="flex-1" onClick={handleOpenImageModal}>
-            <Image className="w-5 h-5" />
-            Ver / Compartir Imagen
-          </Button>
         </div>
-
-        {/* Quote Image Modal */}
-        <QuoteImageModal
-          open={showImageModal}
-          onOpenChange={setShowImageModal}
-          quote={quote}
-          summary={summary}
-          currencySymbol={currencySymbol}
-        />
       </main>
     </div>
   );
