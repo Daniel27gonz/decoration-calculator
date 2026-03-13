@@ -88,14 +88,13 @@ export function AppSidebar() {
                 {lockedItems.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
-                      className="px-3 py-2.5 cursor-pointer opacity-60 hover:opacity-80"
+                      className="px-3 py-2.5 cursor-pointer hover:bg-rose-light/50"
                       onClick={handleLockedClick}
                     >
-                      <item.icon className="mr-3 h-5 w-5 flex-shrink-0 text-muted-foreground" />
+                      <item.icon className="mr-3 h-5 w-5 flex-shrink-0" />
                       {!collapsed && (
-                        <span className="text-sm text-muted-foreground flex-1">{item.title}</span>
+                        <span className="text-sm">{item.title}</span>
                       )}
-                      {!collapsed && <Lock className="h-3.5 w-3.5 text-muted-foreground ml-auto" />}
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
