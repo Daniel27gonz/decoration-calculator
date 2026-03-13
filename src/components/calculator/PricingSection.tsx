@@ -160,54 +160,6 @@ export function PricingSection({
         </div>
       </div>
 
-      {/* Cost Breakdown (collapsible detail) */}
-      <Card>
-        <CardHeader className="pb-3">
-          <CardTitle className="flex items-center gap-2 text-base text-muted-foreground">
-            <span className="text-lg">📋</span>
-            Desglose de costos
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-0">
-          <div className="divide-y divide-border/50 text-sm">
-            <CostLine label="Materiales no reutilizables" amount={formatCurrency(summary.totalMaterials)} />
-            <CostLine label="Materiales reutilizables" amount={formatCurrency(summary.totalReusableMaterials)} />
-            <CostLine label={`Merma (${wastagePercentage}%)`} amount={formatCurrency(summary.wastage)} />
-            <CostLine label="Mano de obra" amount={formatCurrency(summary.totalLabor)} />
-            <CostLine label="Transporte" amount={formatCurrency(summary.totalTransport)} />
-            <CostLine label="Extras" amount={formatCurrency(summary.totalExtras)} />
-            <CostLine
-              label="Gastos indirectos"
-              sublabel={`${formatCurrency(indirectExpensesTotal)}/mes ÷ ${eventsPerMonth} eventos`}
-              amount={formatCurrency(summary.indirectExpenses)}
-            />
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-function CostLine({
-  label,
-  sublabel,
-  amount,
-}: {
-  label: string;
-  sublabel?: string;
-  amount: string;
-}) {
-  return (
-    <div className="flex items-center justify-between px-5 py-3 hover:bg-muted/30 transition-colors">
-      <div className="min-w-0">
-        <span className="text-foreground">{label}</span>
-        {sublabel && (
-          <span className="block text-xs text-muted-foreground">{sublabel}</span>
-        )}
-      </div>
-      <span className="font-semibold tabular-nums text-foreground whitespace-nowrap ml-4">
-        {amount}
-      </span>
     </div>
   );
 }
