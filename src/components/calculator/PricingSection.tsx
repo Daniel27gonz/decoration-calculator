@@ -105,13 +105,13 @@ export function PricingSection({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Costo de la decoración — neutral/gris */}
         <div className="relative rounded-2xl border border-border bg-muted/30 p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-muted">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-muted shrink-0">
               <Receipt className="w-5 h-5 text-muted-foreground" />
             </div>
-            <span className="text-base font-bold text-muted-foreground leading-tight">
+            <h3 className="text-lg sm:text-xl font-bold text-muted-foreground leading-snug">
               Costo de la decoración
-            </span>
+            </h3>
           </div>
           <p className="text-5xl sm:text-6xl font-extrabold tracking-tighter text-muted-foreground tabular-nums leading-none">
             {formatCurrency(summary.totalCost)}
