@@ -104,7 +104,7 @@ export function PricingSection({
       {/* Dashboard Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {/* Costo de la decoración */}
-        <div className="rounded-xl border border-border bg-card p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+        <div className="rounded-xl border border-border bg-muted/40 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
           <div className="flex items-center gap-2.5 mb-3">
             <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-muted shrink-0">
               <Receipt className="w-4 h-4 text-muted-foreground" />
