@@ -18,12 +18,11 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 
-const activeItems = [
+const activeItemsBefore = [
   { title: "Inicio", url: "/", icon: Home },
   { title: "Calculadora", url: "/calculator", icon: Calculator },
-  { title: "Cotización PDF", url: "/design", icon: FileText },
   { title: "Historial", url: "/history", icon: History },
-  { title: "Configuración", url: "/settings", icon: Settings },
+  { title: "Cotización PDF", url: "/design", icon: FileText },
 ];
 
 const lockedItems = [
@@ -32,6 +31,10 @@ const lockedItems = [
   { title: "Agenda de eventos", icon: CalendarDays, description: "Agenda de decoraciones" },
   { title: "Ingresos y gastos", icon: BarChart3, description: "Control de ingresos y gastos" },
   { title: "Resumen del mes", icon: TrendingUp, description: "Resumen del negocio" },
+];
+
+const activeItemsAfter = [
+  { title: "Configuración", url: "/settings", icon: Settings },
 ];
 
 export function AppSidebar() {
