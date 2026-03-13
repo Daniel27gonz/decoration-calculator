@@ -146,13 +146,13 @@ export function PricingSection({
 
         {/* Ganancia de esta decoración — verde */}
         <div className="relative rounded-2xl border border-profit-high/30 bg-profit-high/5 p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-profit-high/10">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-profit-high/10 shrink-0">
               <TrendingUp className="w-5 h-5 text-profit-high" />
             </div>
-            <span className="text-base font-bold text-profit-high leading-tight">
+            <h3 className="text-lg sm:text-xl font-bold text-profit-high leading-snug">
               Ganancia de esta decoración
-            </span>
+            </h3>
           </div>
           <p className={cn(
             'text-5xl sm:text-6xl font-extrabold tracking-tighter tabular-nums leading-none',
