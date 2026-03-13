@@ -104,16 +104,16 @@ export function PricingSection({
       {/* Dashboard Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {/* Costo de la decoración */}
-        <div className="rounded-xl border border-border bg-muted/40 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+        <div className="rounded-xl border border-muted-foreground/20 bg-muted p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
           <div className="flex items-center gap-2.5 mb-3">
-            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-muted shrink-0">
+            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-muted-foreground/15 shrink-0">
               <Receipt className="w-4 h-4 text-muted-foreground" />
             </div>
-            <h3 className="text-base sm:text-lg font-semibold text-muted-foreground leading-snug">
+            <h3 className="text-xl sm:text-2xl font-bold text-muted-foreground leading-snug">
               Costo de la decoración
             </h3>
           </div>
-          <p className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground/70 tabular-nums leading-none">
+          <p className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground/70 tabular-nums leading-none">
             {formatCurrency(summary.totalCost)}
           </p>
           <p className="text-[11px] text-muted-foreground/60 mt-2.5">
@@ -122,21 +122,21 @@ export function PricingSection({
         </div>
 
         {/* Precio sugerido al cliente */}
-        <div className="relative rounded-xl border-2 border-primary/40 bg-primary/10 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+        <div className="relative rounded-xl border-2 border-primary/60 bg-primary/20 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
           <div className="absolute top-2.5 right-2.5">
             <span className="text-[9px] font-bold uppercase tracking-widest bg-primary text-primary-foreground px-2 py-0.5 rounded-full">
               Recomendado
             </span>
           </div>
           <div className="flex items-center gap-2.5 mb-3">
-            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 shrink-0">
+            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-primary/20 shrink-0">
               <BadgeDollarSign className="w-4 h-4 text-primary" />
             </div>
-            <h3 className="text-base sm:text-lg font-semibold text-primary leading-snug">
+            <h3 className="text-xl sm:text-2xl font-bold text-primary leading-snug">
               Precio sugerido al cliente
             </h3>
           </div>
-          <p className="text-4xl sm:text-5xl font-extrabold tracking-tight text-primary tabular-nums leading-none">
+          <p className="text-2xl sm:text-3xl font-bold tracking-tight text-primary tabular-nums leading-none">
             {formatCurrency(summary.finalPrice)}
           </p>
           <p className="text-[11px] text-muted-foreground/60 mt-2.5">
@@ -145,17 +145,17 @@ export function PricingSection({
         </div>
 
         {/* Ganancia de esta decoración */}
-        <div className="rounded-xl border border-profit-high/30 bg-profit-high/10 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+        <div className="rounded-xl border border-profit-high/40 bg-profit-high/20 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
           <div className="flex items-center gap-2.5 mb-3">
-            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-profit-high/10 shrink-0">
+            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-profit-high/20 shrink-0">
               <TrendingUp className="w-4 h-4 text-profit-high" />
             </div>
-            <h3 className="text-base sm:text-lg font-semibold text-profit-high leading-snug">
+            <h3 className="text-xl sm:text-2xl font-bold text-profit-high leading-snug">
               Ganancia de esta decoración
             </h3>
           </div>
           <p className={cn(
-            'text-4xl sm:text-5xl font-extrabold tracking-tight tabular-nums leading-none',
+            'text-2xl sm:text-3xl font-bold tracking-tight tabular-nums leading-none',
             netProfit > 0 ? 'text-profit-high' : 'text-profit-low'
           )}>
             {formatCurrency(netProfit)}
