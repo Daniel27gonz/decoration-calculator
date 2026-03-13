@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Calculator, Package, History, TrendingUp, Sparkles, MessageCircle, Lock, ShoppingBag, DollarSign, Calendar, BarChart3, ClipboardList } from 'lucide-react';
+import { Calculator, Package, History, TrendingUp, Sparkles, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useQuote } from '@/contexts/QuoteContext';
@@ -167,35 +167,6 @@ export default function Home() {
                 </CardContent>
               </Card>
             </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Locked Features Dashboard */}
-      <section className="container max-w-4xl mx-auto px-4 mt-8">
-        <h2 className="font-display text-xl font-semibold mb-4 text-foreground">Próximamente</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[
-            { icon: ShoppingBag, title: 'Pedidos de decoraciones', description: 'Guarda cada pedido y revisa qué decoraciones tienes pendientes.', color: 'bg-rose-light text-rose-dark' },
-            { icon: DollarSign, title: 'Anticipos de clientes', description: 'Registra cuánto te pagaron y cuánto falta por cobrar.', color: 'bg-lavender-light text-accent-foreground' },
-            { icon: Calendar, title: 'Agenda de decoraciones', description: 'Organiza las fechas de tus eventos y evita cruzar pedidos.', color: 'bg-secondary text-secondary-foreground' },
-            { icon: BarChart3, title: 'Control de ingresos y gastos', description: 'Registra lo que gastas en materiales y lo que entra de cada decoración.', color: 'bg-rose-light text-rose-dark' },
-            { icon: ClipboardList, title: 'Resumen del negocio', description: 'Mira cuánto dinero ganaste realmente en el mes.', color: 'bg-lavender-light text-accent-foreground' },
-          ].map(({ icon: Icon, title, description, color }) => (
-            <Card key={title} className="h-full opacity-75 cursor-not-allowed relative overflow-hidden">
-              <CardContent className="p-6 space-y-4">
-                <div className="flex items-start justify-between">
-                  <div className={`w-12 h-12 rounded-xl ${color} flex items-center justify-center`}>
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <Lock className="w-5 h-5 text-muted-foreground" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-semibold">{title}</h3>
-                  <p className="text-sm text-muted-foreground">{description}</p>
-                </div>
-              </CardContent>
-            </Card>
           ))}
         </div>
       </section>
