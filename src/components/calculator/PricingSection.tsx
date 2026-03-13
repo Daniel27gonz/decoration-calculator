@@ -145,17 +145,17 @@ export function PricingSection({
         </div>
 
         {/* Ganancia de esta decoración */}
-        <div className="rounded-xl border border-profit-high/30 bg-profit-high/10 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+        <div className="rounded-xl border border-profit-high/40 bg-profit-high/20 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
           <div className="flex items-center gap-2.5 mb-3">
-            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-profit-high/10 shrink-0">
+            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-profit-high/20 shrink-0">
               <TrendingUp className="w-4 h-4 text-profit-high" />
             </div>
-            <h3 className="text-base sm:text-lg font-semibold text-profit-high leading-snug">
+            <h3 className="text-xl sm:text-2xl font-bold text-profit-high leading-snug">
               Ganancia de esta decoración
             </h3>
           </div>
           <p className={cn(
-            'text-4xl sm:text-5xl font-extrabold tracking-tight tabular-nums leading-none',
+            'text-2xl sm:text-3xl font-bold tracking-tight tabular-nums leading-none',
             netProfit > 0 ? 'text-profit-high' : 'text-profit-low'
           )}>
             {formatCurrency(netProfit)}
