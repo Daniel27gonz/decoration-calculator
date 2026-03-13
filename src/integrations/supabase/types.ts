@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      profiles: {
+        Row: {
+          business_name: string | null
+          created_at: string
+          currency: string
+          default_hourly_rate: number
+          email: string | null
+          events_per_month: number
+          id: string
+          logo_url: string | null
+          mode: string
+          name: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          business_name?: string | null
+          created_at?: string
+          currency?: string
+          default_hourly_rate?: number
+          email?: string | null
+          events_per_month?: number
+          id?: string
+          logo_url?: string | null
+          mode?: string
+          name?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          business_name?: string | null
+          created_at?: string
+          currency?: string
+          default_hourly_rate?: number
+          email?: string | null
+          events_per_month?: number
+          id?: string
+          logo_url?: string | null
+          mode?: string
+          name?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       quotes: {
         Row: {
           balloons: Json
@@ -83,6 +128,111 @@ export type Database = {
         }
         Relationships: []
       }
+      reusable_materials: {
+        Row: {
+          cost_per_use: number
+          created_at: string
+          id: string
+          material_cost: number
+          name: string
+          user_id: string
+        }
+        Insert: {
+          cost_per_use?: number
+          created_at?: string
+          id?: string
+          material_cost?: number
+          name: string
+          user_id: string
+        }
+        Update: {
+          cost_per_use?: number
+          created_at?: string
+          id?: string
+          material_cost?: number
+          name?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_approval_status: {
+        Row: {
+          created_at: string
+          id: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_materials: {
+        Row: {
+          category: string
+          cost_per_unit: number | null
+          created_at: string
+          id: string
+          name: string
+          presentation_price: number | null
+          purchase_unit: string | null
+          quantity_per_presentation: number | null
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          cost_per_unit?: number | null
+          created_at?: string
+          id?: string
+          name: string
+          presentation_price?: number | null
+          purchase_unit?: string | null
+          quantity_per_presentation?: number | null
+          user_id: string
+        }
+        Update: {
+          category?: string
+          cost_per_unit?: number | null
+          created_at?: string
+          id?: string
+          name?: string
+          presentation_price?: number | null
+          purchase_unit?: string | null
+          quantity_per_presentation?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -91,7 +241,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -218,6 +368,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user"],
+    },
   },
 } as const
