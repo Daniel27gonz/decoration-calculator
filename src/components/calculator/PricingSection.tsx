@@ -131,7 +131,7 @@ export function PricingSection({
               Precio sugerido al cliente
             </h3>
           </div>
-          <p className="text-lg sm:text-xl font-semibold text-[#BE185D] tabular-nums">
+          <p className="text-2xl sm:text-3xl font-bold text-[#BE185D] tabular-nums text-center">
             {formatCurrency(summary.finalPrice)}
           </p>
           <div className="flex items-center gap-2 mt-2">
