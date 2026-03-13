@@ -104,7 +104,7 @@ export function PricingSection({
       {/* Dashboard Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {/* Costo de la decoración */}
-        <div className="rounded-xl border border-border bg-card p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+        <div className="rounded-xl border border-border bg-muted/40 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
           <div className="flex items-center gap-2.5 mb-3">
             <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-muted shrink-0">
               <Receipt className="w-4 h-4 text-muted-foreground" />
@@ -122,7 +122,7 @@ export function PricingSection({
         </div>
 
         {/* Precio sugerido al cliente */}
-        <div className="relative rounded-xl border-2 border-primary/40 bg-card p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+        <div className="relative rounded-xl border-2 border-primary/40 bg-primary/10 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
           <div className="absolute top-2.5 right-2.5">
             <span className="text-[9px] font-bold uppercase tracking-widest bg-primary text-primary-foreground px-2 py-0.5 rounded-full">
               Recomendado
@@ -145,7 +145,7 @@ export function PricingSection({
         </div>
 
         {/* Ganancia de esta decoración */}
-        <div className="rounded-xl border border-border bg-card p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+        <div className="rounded-xl border border-profit-high/30 bg-profit-high/10 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
           <div className="flex items-center gap-2.5 mb-3">
             <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-profit-high/10 shrink-0">
               <TrendingUp className="w-4 h-4 text-profit-high" />
