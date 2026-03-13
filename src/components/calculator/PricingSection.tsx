@@ -105,57 +105,63 @@ export function PricingSection({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Costo por evento */}
         <div className="relative rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-muted">
-              <Receipt className="w-4.5 h-4.5 text-muted-foreground" />
+          <div className="flex items-center gap-2.5 mb-3">
+            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-muted">
+              <Receipt className="w-5 h-5 text-muted-foreground" />
             </div>
-            <span className="text-sm font-medium text-muted-foreground">Costo por evento</span>
+            <span className="text-sm font-medium text-muted-foreground leading-tight">
+              Costo por evento
+            </span>
           </div>
-          <p className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground tabular-nums">
+          <p className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground tabular-nums leading-none">
             {formatCurrency(summary.totalCost)}
           </p>
-          <p className="text-xs text-muted-foreground mt-2">
-            Materiales + mano de obra + gastos
+          <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+            Incluye materiales, mano de obra y todos los gastos del evento
           </p>
         </div>
 
         {/* Precio sugerido al cliente - DESTACADA */}
         <div className="relative rounded-2xl border-2 border-primary bg-primary/5 p-5 sm:p-6 shadow-card transition-all duration-300 hover:shadow-elevated ring-1 ring-primary/10">
           <div className="absolute top-3 right-3">
-            <span className="text-[10px] font-semibold uppercase tracking-wider bg-primary text-primary-foreground px-2 py-0.5 rounded-full">
+            <span className="text-[10px] font-bold uppercase tracking-widest bg-primary text-primary-foreground px-2.5 py-1 rounded-full">
               Recomendado
             </span>
           </div>
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-primary/15">
-              <BadgeDollarSign className="w-4.5 h-4.5 text-primary" />
+          <div className="flex items-center gap-2.5 mb-3">
+            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/15">
+              <BadgeDollarSign className="w-5 h-5 text-primary" />
             </div>
-            <span className="text-sm font-medium text-muted-foreground">Precio sugerido al cliente</span>
+            <span className="text-sm font-medium text-muted-foreground leading-tight">
+              Precio sugerido al cliente
+            </span>
           </div>
-          <p className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground tabular-nums">
+          <p className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground tabular-nums leading-none">
             {formatCurrency(summary.finalPrice)}
           </p>
-          <p className="text-xs text-muted-foreground mt-2">
-            Con margen del {marginPercentage}% aplicado
+          <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+            Precio recomendado con margen del {marginPercentage}% aplicado
           </p>
         </div>
 
-        {/* Tu ganancia */}
+        {/* Ganancia en este evento */}
         <div className="relative rounded-2xl border border-border bg-card p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-profit-high/10">
-              <TrendingUp className="w-4.5 h-4.5 text-profit-high" />
+          <div className="flex items-center gap-2.5 mb-3">
+            <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-profit-high/10">
+              <TrendingUp className="w-5 h-5 text-profit-high" />
             </div>
-            <span className="text-sm font-medium text-muted-foreground">Tu ganancia</span>
+            <span className="text-sm font-medium text-muted-foreground leading-tight">
+              Ganancia en este evento
+            </span>
           </div>
           <p className={cn(
-            'text-3xl sm:text-4xl font-bold tracking-tight tabular-nums',
+            'text-4xl sm:text-5xl font-bold tracking-tight tabular-nums leading-none',
             netProfit > 0 ? 'text-profit-high' : 'text-profit-low'
           )}>
             {formatCurrency(netProfit)}
           </p>
-          <p className="text-xs text-muted-foreground mt-2">
-            Precio al cliente − costo del evento
+          <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
+            Precio al cliente ({formatCurrency(summary.finalPrice)}) − costo del evento ({formatCurrency(summary.totalCost)})
           </p>
         </div>
       </div>
