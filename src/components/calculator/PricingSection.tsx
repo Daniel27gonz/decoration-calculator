@@ -102,65 +102,65 @@ export function PricingSection({
       </Card>
 
       {/* Dashboard Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {/* Costo de la decoración — neutral/gris */}
-        <div className="relative rounded-2xl border border-border bg-muted/30 p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-muted shrink-0">
-              <Receipt className="w-5 h-5 text-muted-foreground" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        {/* Costo de la decoración */}
+        <div className="rounded-xl border border-border bg-card p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+          <div className="flex items-center gap-2.5 mb-3">
+            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-muted shrink-0">
+              <Receipt className="w-4 h-4 text-muted-foreground" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-muted-foreground leading-snug">
+            <h3 className="text-base sm:text-lg font-semibold text-muted-foreground leading-snug">
               Costo de la decoración
             </h3>
           </div>
-          <p className="text-5xl sm:text-6xl font-extrabold tracking-tighter text-muted-foreground tabular-nums leading-none">
+          <p className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground/70 tabular-nums leading-none">
             {formatCurrency(summary.totalCost)}
           </p>
-          <p className="text-xs text-muted-foreground/70 mt-4 leading-relaxed">
+          <p className="text-[11px] text-muted-foreground/60 mt-2.5">
             Materiales + mano de obra + gastos
           </p>
         </div>
 
-        {/* Precio sugerido al cliente — color principal destacado */}
-        <div className="relative rounded-2xl border-2 border-primary bg-primary/5 p-5 sm:p-6 shadow-card transition-all duration-300 hover:shadow-elevated ring-1 ring-primary/10">
-          <div className="absolute top-3 right-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest bg-primary text-primary-foreground px-2.5 py-1 rounded-full">
+        {/* Precio sugerido al cliente */}
+        <div className="relative rounded-xl border-2 border-primary/40 bg-card p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+          <div className="absolute top-2.5 right-2.5">
+            <span className="text-[9px] font-bold uppercase tracking-widest bg-primary text-primary-foreground px-2 py-0.5 rounded-full">
               Recomendado
             </span>
           </div>
-          <div className="flex items-center gap-3 mb-5">
-            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-primary/15 shrink-0">
-              <BadgeDollarSign className="w-5 h-5 text-primary" />
+          <div className="flex items-center gap-2.5 mb-3">
+            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-primary/10 shrink-0">
+              <BadgeDollarSign className="w-4 h-4 text-primary" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-primary leading-snug">
+            <h3 className="text-base sm:text-lg font-semibold text-primary leading-snug">
               Precio sugerido al cliente
             </h3>
           </div>
-          <p className="text-5xl sm:text-6xl font-extrabold tracking-tighter text-primary tabular-nums leading-none">
+          <p className="text-4xl sm:text-5xl font-extrabold tracking-tight text-primary tabular-nums leading-none">
             {formatCurrency(summary.finalPrice)}
           </p>
-          <p className="text-xs text-muted-foreground/70 mt-4 leading-relaxed">
+          <p className="text-[11px] text-muted-foreground/60 mt-2.5">
             Con margen del {marginPercentage}% aplicado
           </p>
         </div>
 
-        {/* Ganancia de esta decoración — verde */}
-        <div className="relative rounded-2xl border border-profit-high/30 bg-profit-high/5 p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-profit-high/10 shrink-0">
-              <TrendingUp className="w-5 h-5 text-profit-high" />
+        {/* Ganancia de esta decoración */}
+        <div className="rounded-xl border border-border bg-card p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+          <div className="flex items-center gap-2.5 mb-3">
+            <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-profit-high/10 shrink-0">
+              <TrendingUp className="w-4 h-4 text-profit-high" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-profit-high leading-snug">
+            <h3 className="text-base sm:text-lg font-semibold text-profit-high leading-snug">
               Ganancia de esta decoración
             </h3>
           </div>
           <p className={cn(
-            'text-5xl sm:text-6xl font-extrabold tracking-tighter tabular-nums leading-none',
+            'text-4xl sm:text-5xl font-extrabold tracking-tight tabular-nums leading-none',
             netProfit > 0 ? 'text-profit-high' : 'text-profit-low'
           )}>
             {formatCurrency(netProfit)}
           </p>
-          <p className="text-xs text-muted-foreground/70 mt-4 leading-relaxed">
+          <p className="text-[11px] text-muted-foreground/60 mt-2.5">
             {formatCurrency(summary.finalPrice)} − {formatCurrency(summary.totalCost)}
           </p>
         </div>
