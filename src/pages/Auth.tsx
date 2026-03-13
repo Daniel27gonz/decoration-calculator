@@ -118,10 +118,10 @@ export default function Auth() {
             {/* First access help message for login */}
             {isLogin && (
               <div className="mb-4 p-3 bg-accent/50 border border-border rounded-lg">
-                <div className="text-sm text-foreground space-y-2">
-                  <p className="font-bold">🔐 ¿Es tu primer acceso?</p>
-                  <p>Ingresa con el correo electrónico que utilizaste en la compra y usa tu número de teléfono registrado como contraseña temporal. Ejemplo: <span className="font-semibold">521234567890</span></p>
-                  <p>Luego podrás cambiar tu contraseña fácilmente desde la configuración ⚙️</p>
+              <div className="text-sm text-foreground space-y-1">
+                  <p className="font-bold">🔐 Primer acceso</p>
+                  <p>Usa el correo de tu compra y tu número de teléfono con código de país como contraseña.</p>
+                  <p>Ejemplo: <span className="font-semibold">521234567890</span></p>
                 </div>
               </div>
             )}
