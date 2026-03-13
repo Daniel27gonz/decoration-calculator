@@ -134,9 +134,14 @@ export function PricingSection({
           <p className="text-lg sm:text-xl font-semibold text-[#BE185D] tabular-nums">
             {formatCurrency(summary.finalPrice)}
           </p>
-          <p className="text-[11px] text-[#9CA3AF] mt-2">
-            Con margen del {marginPercentage}% aplicado
-          </p>
+          <div className="flex items-center gap-2 mt-2">
+            <span className="text-[9px] font-bold uppercase tracking-widest bg-[#EC4899] text-white px-2 py-0.5 rounded-full">
+              Recomendado
+            </span>
+            <span className="text-[11px] text-[#9CA3AF]">
+              Con margen del {marginPercentage}%
+            </span>
+          </div>
         </div>
 
         {/* TU GANANCIA */}
