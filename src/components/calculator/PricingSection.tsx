@@ -105,19 +105,19 @@ export function PricingSection({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Costo de la decoración — neutral/gris */}
         <div className="relative rounded-2xl border border-border bg-muted/30 p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
-          <div className="flex items-center gap-2.5 mb-3">
+          <div className="flex items-center gap-2.5 mb-4">
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-muted">
               <Receipt className="w-5 h-5 text-muted-foreground" />
             </div>
-            <span className="text-sm font-medium text-muted-foreground leading-tight">
+            <span className="text-sm font-semibold text-muted-foreground leading-tight">
               Costo de la decoración
             </span>
           </div>
-          <p className="text-4xl sm:text-5xl font-bold tracking-tight text-muted-foreground tabular-nums leading-none">
+          <p className="text-5xl sm:text-6xl font-extrabold tracking-tighter text-muted-foreground tabular-nums leading-none">
             {formatCurrency(summary.totalCost)}
           </p>
-          <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
-            Incluye materiales, mano de obra y todos los gastos del evento
+          <p className="text-xs text-muted-foreground/70 mt-4 leading-relaxed">
+            Materiales + mano de obra + gastos
           </p>
         </div>
 
@@ -128,44 +128,43 @@ export function PricingSection({
               Recomendado
             </span>
           </div>
-          <div className="flex items-center gap-2.5 mb-3">
+          <div className="flex items-center gap-2.5 mb-4">
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/15">
               <BadgeDollarSign className="w-5 h-5 text-primary" />
             </div>
-            <span className="text-sm font-medium text-primary leading-tight">
+            <span className="text-sm font-semibold text-primary leading-tight">
               Precio sugerido al cliente
             </span>
           </div>
-          <p className="text-4xl sm:text-5xl font-bold tracking-tight text-primary tabular-nums leading-none">
+          <p className="text-5xl sm:text-6xl font-extrabold tracking-tighter text-primary tabular-nums leading-none">
             {formatCurrency(summary.finalPrice)}
           </p>
-          <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
-            Precio recomendado con margen del {marginPercentage}% aplicado
+          <p className="text-xs text-muted-foreground/70 mt-4 leading-relaxed">
+            Con margen del {marginPercentage}% aplicado
           </p>
         </div>
 
         {/* Ganancia de esta decoración — verde */}
         <div className="relative rounded-2xl border border-profit-high/30 bg-profit-high/5 p-5 sm:p-6 shadow-soft transition-all duration-300 hover:shadow-card">
-          <div className="flex items-center gap-2.5 mb-3">
+          <div className="flex items-center gap-2.5 mb-4">
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-profit-high/10">
               <TrendingUp className="w-5 h-5 text-profit-high" />
             </div>
-            <span className="text-sm font-medium text-profit-high leading-tight">
+            <span className="text-sm font-semibold text-profit-high leading-tight">
               Ganancia de esta decoración
             </span>
           </div>
           <p className={cn(
-            'text-4xl sm:text-5xl font-bold tracking-tight tabular-nums leading-none',
+            'text-5xl sm:text-6xl font-extrabold tracking-tighter tabular-nums leading-none',
             netProfit > 0 ? 'text-profit-high' : 'text-profit-low'
           )}>
             {formatCurrency(netProfit)}
           </p>
-          <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
-            Precio al cliente ({formatCurrency(summary.finalPrice)}) − costo ({formatCurrency(summary.totalCost)})
+          <p className="text-xs text-muted-foreground/70 mt-4 leading-relaxed">
+            {formatCurrency(summary.finalPrice)} − {formatCurrency(summary.totalCost)}
           </p>
         </div>
       </div>
-
     </div>
   );
 }
