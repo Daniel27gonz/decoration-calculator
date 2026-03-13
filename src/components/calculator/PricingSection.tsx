@@ -155,7 +155,7 @@ export function PricingSection({
             </h3>
           </div>
           <p className={cn(
-            'text-lg sm:text-xl font-semibold tabular-nums',
+            'text-2xl sm:text-3xl font-bold tabular-nums text-center',
             netProfit > 0 ? 'text-[#15803D]' : 'text-[#DC2626]'
           )}>
             {formatCurrency(netProfit)}
