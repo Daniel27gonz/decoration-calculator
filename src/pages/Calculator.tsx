@@ -280,6 +280,13 @@ export default function Calculator() {
           currencySymbol={currencySymbol}
         />
 
+        {/* Cost Breakdown */}
+        <CostBreakdown
+          summary={summary}
+          wastagePercentage={quote.wastagePercentage}
+          currencySymbol={currencySymbol}
+        />
+
         {/* Pricing */}
         <PricingSection
           summary={summary}
