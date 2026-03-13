@@ -150,7 +150,7 @@ export function PricingSection({
             <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-profit-high/10">
               <TrendingUp className="w-5 h-5 text-profit-high" />
             </div>
-            <span className="text-sm font-semibold text-profit-high leading-tight">
+            <span className="text-base font-bold text-profit-high leading-tight">
               Ganancia de esta decoración
             </span>
           </div>
