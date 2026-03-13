@@ -219,20 +219,34 @@ export default function Auth() {
 
             {/* Toggle */}
             <div className="mt-6 text-center">
-              <p className="text-sm text-muted-foreground">
-                {isLogin ? '¿No tienes cuenta?' : '¿Ya tienes cuenta?'}
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsLogin(!isLogin);
-                    setErrors({});
-                    setFormData({ name: '', email: '', password: '' });
-                  }}
-                  className="ml-1 text-primary font-semibold hover:underline"
-                >
-                  {isLogin ? 'Regístrate' : 'Inicia sesión'}
-                </button>
-              </p>
+              {isLogin ? (
+                <p className="text-sm text-muted-foreground">
+                  ¿Aún no tienes acceso?
+                  <a
+                    href="https://fiestas.click"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-1 text-primary font-semibold hover:underline"
+                  >
+                    Adquiérelo aquí
+                  </a>
+                </p>
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  ¿Ya tienes cuenta?
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsLogin(true);
+                      setErrors({});
+                      setFormData({ name: '', email: '', password: '' });
+                    }}
+                    className="ml-1 text-primary font-semibold hover:underline"
+                  >
+                    Inicia sesión
+                  </button>
+                </p>
+              )}
             </div>
           </CardContent>
         </Card>
