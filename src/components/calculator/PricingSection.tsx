@@ -110,7 +110,7 @@ export function PricingSection({
               <Receipt className="w-5 h-5 text-muted-foreground" />
             </div>
             <span className="text-sm font-medium text-muted-foreground leading-tight">
-              Costo por evento
+              Costo de la decoración
             </span>
           </div>
           <p className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground tabular-nums leading-none">
@@ -151,7 +151,7 @@ export function PricingSection({
               <TrendingUp className="w-5 h-5 text-profit-high" />
             </div>
             <span className="text-sm font-medium text-muted-foreground leading-tight">
-              Ganancia en este evento
+              Ganancia de esta decoración
             </span>
           </div>
           <p className={cn(
