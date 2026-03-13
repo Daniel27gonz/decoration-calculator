@@ -164,8 +164,6 @@ export default function Calculator() {
       </header>
 
       <main className="container max-w-4xl mx-auto px-4 py-6 space-y-6">
-        {/* Logo Upload */}
-        <LogoUploadSection />
 
         {/* Currency Selector */}
         <Card>
