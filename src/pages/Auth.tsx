@@ -93,7 +93,7 @@ export default function Auth() {
             <span className="text-sm font-medium">Balloon Profit Calculator</span>
           </div>
           <h1 className="font-display text-3xl font-bold">
-            {isLogin ? 'Bienvenida de vuelta' : 'Crea tu cuenta'}
+            {isLogin ? 'Bienvenida' : 'Crea tu cuenta'}
           </h1>
           <p className="text-muted-foreground">
             {isLogin 
