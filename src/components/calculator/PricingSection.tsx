@@ -145,7 +145,7 @@ export function PricingSection({
         </div>
 
         {/* Ganancia de esta decoración */}
-        <div className="rounded-xl border border-border bg-card p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+        <div className="rounded-xl border border-profit-high/30 bg-profit-high/10 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
           <div className="flex items-center gap-2.5 mb-3">
             <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-profit-high/10 shrink-0">
               <TrendingUp className="w-4 h-4 text-profit-high" />
