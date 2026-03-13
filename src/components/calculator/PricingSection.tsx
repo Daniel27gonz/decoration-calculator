@@ -122,7 +122,7 @@ export function PricingSection({
         </div>
 
         {/* Precio sugerido al cliente */}
-        <div className="relative rounded-xl border-2 border-primary/40 bg-card p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
+        <div className="relative rounded-xl border-2 border-primary/40 bg-primary/10 p-4 sm:p-5 shadow-sm transition-shadow hover:shadow-md">
           <div className="absolute top-2.5 right-2.5">
             <span className="text-[9px] font-bold uppercase tracking-widest bg-primary text-primary-foreground px-2 py-0.5 rounded-full">
               Recomendado
