@@ -71,12 +71,6 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-            <Button asChild variant="gradient" size="xl">
-              <Link to="/calculator">
-                <Calculator className="w-5 h-5" />
-                Crear Cotización
-              </Link>
-            </Button>
             <Button asChild
               variant="outline" 
               size="default"
