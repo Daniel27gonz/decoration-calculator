@@ -60,13 +60,9 @@ const Design = () => {
   const [selectedQuoteId, setSelectedQuoteId] = useState<string>("");
   const logoInputRef = useRef<HTMLInputElement>(null);
   const [templateData, setTemplateData] = useState<QuoteTemplateData>({
-    businessName: profile?.business_name || "Mi Negocio",
-    businessLogo: profile?.logo_url || "",
-    quoteDate: new Date().toLocaleDateString("es-MX", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }),
+    businessName: "",
+    businessLogo: "",
+    quoteDate: "",
     clientName: "",
     clientPhone: "",
     eventDate: "",
@@ -77,9 +73,9 @@ const Design = () => {
     ],
     additionalServices: [],
     depositPercentage: 50,
-    depositMessage: "Se solicita un anticipo del {percentage}% para confirmar la fecha",
-    thankYouMessage: "¡Gracias por confiar en mí para hacer tu evento especial!",
-    customNote: "Esta cotización está cuidadosamente diseñada para adaptarse a tus necesidades y brindarte la mejor decoración que siempre soñaste.",
+    depositMessage: "",
+    thankYouMessage: "",
+    customNote: "",
   });
 
   // Load profile data and design config when available
