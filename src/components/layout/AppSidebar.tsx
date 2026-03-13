@@ -80,17 +80,14 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* Próximamente */}
+        {/* Upcoming features */}
         {!collapsed && (
           <SidebarGroup>
-            <SidebarGroupLabel className="text-xs text-muted-foreground/60 uppercase tracking-wider px-3">
-              Próximamente
-            </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {lockedItems.map((item) => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton disabled className="px-3 py-2.5">
+                    <SidebarMenuButton disabled className="px-3 py-2.5 cursor-not-allowed">
                       <item.icon className="mr-3 h-5 w-5 flex-shrink-0" />
                       <span className="text-sm">{item.title}</span>
                     </SidebarMenuButton>
