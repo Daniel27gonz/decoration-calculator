@@ -147,13 +147,13 @@ export function AppSidebar() {
               Esta función forma parte del sistema DecoControl.
             </p>
             <p className="text-sm text-muted-foreground">
-              La herramienta que te ayuda a organizar y controlar tu negocio de decoraciones.
+              DecoControl te ayuda a organizar y controlar tu negocio de decoraciones.
             </p>
             <Button
               className="w-full mt-4 text-base font-semibold"
               size="lg"
               onClick={() => {
-                window.open("https://calcu-docora.lovable.app", "_blank");
+                window.open("https://pay.hotmart.com/K104706289L?off=y7fk9hyc&checkoutMode=10", "_blank");
                 setShowPromo(false);
               }}
             >
