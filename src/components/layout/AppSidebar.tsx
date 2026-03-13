@@ -99,12 +99,13 @@ export function AppSidebar() {
               {isAdmin && (
                 <SidebarMenuItem>
                   <SidebarMenuButton asChild>
-                    <NavLink
-                      to="/admin/database"
-                      className="hover:bg-rose-light/50 rounded-lg px-3 py-2.5"
-                      activeClassName="bg-rose-light text-primary font-semibold"
-                    >
-                      <Database className="mr-3 h-5 w-5 flex-shrink-0" />
+                     <NavLink
+                       to="/admin/database"
+                       className="hover:bg-rose-light/50 rounded-lg px-3 py-2.5"
+                       activeClassName="bg-rose-light text-primary font-semibold"
+                       onClick={handleNavClick}
+                     >
+                       <Database className="mr-3 h-5 w-5 flex-shrink-0" />
                       {!collapsed && <span className="text-sm">Database</span>}
                     </NavLink>
                   </SidebarMenuButton>
