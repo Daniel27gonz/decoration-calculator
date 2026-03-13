@@ -123,11 +123,6 @@ export function PricingSection({
 
         {/* PRECIO SUGERIDO AL CLIENTE */}
         <div className="relative rounded-xl border-2 border-[#EC4899] bg-[#FCE7F3] p-4 sm:p-5 shadow-sm">
-          <div className="absolute top-2.5 right-2.5">
-            <span className="text-[9px] font-bold uppercase tracking-widest bg-[#EC4899] text-white px-2 py-0.5 rounded-full">
-              Recomendado
-            </span>
-          </div>
           <div className="flex items-center gap-2 mb-3">
             <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#FBCFE8] shrink-0">
               <BadgeDollarSign className="w-4 h-4 text-[#BE185D]" />
@@ -139,9 +134,14 @@ export function PricingSection({
           <p className="text-lg sm:text-xl font-semibold text-[#BE185D] tabular-nums">
             {formatCurrency(summary.finalPrice)}
           </p>
-          <p className="text-[11px] text-[#9CA3AF] mt-2">
-            Con margen del {marginPercentage}% aplicado
-          </p>
+          <div className="flex items-center gap-2 mt-2">
+            <span className="text-[9px] font-bold uppercase tracking-widest bg-[#EC4899] text-white px-2 py-0.5 rounded-full">
+              Recomendado
+            </span>
+            <span className="text-[11px] text-[#9CA3AF]">
+              Con margen del {marginPercentage}%
+            </span>
+          </div>
         </div>
 
         {/* TU GANANCIA */}
