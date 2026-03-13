@@ -20,7 +20,7 @@ import {
 
 const activeItems = [
   { title: "Inicio", url: "/", icon: Home },
-  { title: "Calcular", url: "/calculator", icon: Calculator },
+  { title: "Calculadora", url: "/calculator", icon: Calculator },
   { title: "Historial", url: "/history", icon: History },
   { title: "Configuración", url: "/settings", icon: Settings },
 ];
