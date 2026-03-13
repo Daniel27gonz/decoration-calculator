@@ -110,10 +110,10 @@ export function PricingSection({
               <Receipt className="w-4 h-4 text-[#6B7280]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#374151] leading-tight uppercase">
-              Costo del evento
+              Costo de la decoración
             </h3>
           </div>
-          <p className="text-lg sm:text-xl font-semibold text-[#374151] tabular-nums">
+          <p className="text-2xl sm:text-3xl font-bold text-[#374151] tabular-nums text-center">
             {formatCurrency(summary.totalCost)}
           </p>
           <p className="text-[11px] text-[#9CA3AF] mt-2">
@@ -131,7 +131,7 @@ export function PricingSection({
               Precio sugerido al cliente
             </h3>
           </div>
-          <p className="text-lg sm:text-xl font-semibold text-[#BE185D] tabular-nums">
+          <p className="text-2xl sm:text-3xl font-bold text-[#BE185D] tabular-nums text-center">
             {formatCurrency(summary.finalPrice)}
           </p>
           <div className="flex items-center gap-2 mt-2">
@@ -155,7 +155,7 @@ export function PricingSection({
             </h3>
           </div>
           <p className={cn(
-            'text-lg sm:text-xl font-semibold tabular-nums',
+            'text-2xl sm:text-3xl font-bold tabular-nums text-center',
             netProfit > 0 ? 'text-[#15803D]' : 'text-[#DC2626]'
           )}>
             {formatCurrency(netProfit)}
