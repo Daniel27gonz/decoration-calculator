@@ -51,21 +51,21 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen pb-8">
-      {/* Hero Section */}
-      <section className="gradient-hero pt-8 pb-8 px-4">
-        <div className="container max-w-4xl mx-auto text-center space-y-4">
+    <div className="flex flex-col min-h-[calc(100vh-3.5rem)]">
+      {/* Hero Section - fills available space */}
+      <section className="gradient-hero flex-1 flex items-center justify-center px-4 py-6">
+        <div className="w-full max-w-4xl mx-auto text-center space-y-5">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card shadow-soft">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium">Calculadora para decoradoras</span>
           </div>
           
-          <h1 className="font-display text-3xl md:text-5xl font-bold leading-tight">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             Calculadora para
             <span className="text-gradient block">Decoradoras de Globos</span>
           </h1>
           
-          <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             Calcula el precio perfecto para tus decoraciones, 
             visualiza tu ganancia y envía cotizaciones profesionales.
           </p>
@@ -94,30 +94,30 @@ export default function Home() {
             </Button>
           </div>
 
+          {/* Quick Stats inline */}
+          {quotes.length > 0 && (
+            <div className="pt-4">
+              <Card elevated className="inline-block">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full gradient-primary flex items-center justify-center">
+                      <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-xs sm:text-sm text-muted-foreground">Ingresos proyectados</p>
+                      <p className="text-xl sm:text-2xl font-bold">{currencySymbol}{totalRevenue.toLocaleString('es-LA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+
           <p className="text-sm text-muted-foreground pt-2">
             ¡Hola, {profile?.name || profile?.business_name || user.email?.split('@')[0]}! 👋
           </p>
         </div>
       </section>
-
-      {/* Quick Stats */}
-      {quotes.length > 0 && (
-        <section className="container max-w-4xl mx-auto px-4 mt-6">
-          <Card elevated>
-            <CardContent className="p-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center">
-                  <TrendingUp className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Ingresos proyectados</p>
-                  <p className="text-2xl font-bold">{currencySymbol}{totalRevenue.toLocaleString('es-LA', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-      )}
 
       {/* Decorative Elements */}
       <div className="fixed top-20 right-10 text-6xl opacity-20 animate-float pointer-events-none hidden md:block">
