@@ -16,7 +16,7 @@ export default function Home() {
   const { quotes, calculateCosts } = useQuote();
   const { user, profile, loading, isApproved, approvalStatus, isAdmin } = useAuth();
   const { setOpenMobile, isMobile } = useSidebar();
-  const [showMenuHint, setShowMenuHint] = useState(true);
+  
   useEffect(() => {
     if (!loading && !user) {
       navigate('/auth');
