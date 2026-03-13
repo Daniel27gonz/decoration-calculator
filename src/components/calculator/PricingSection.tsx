@@ -110,10 +110,10 @@ export function PricingSection({
               <Receipt className="w-4 h-4 text-[#6B7280]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#374151] leading-tight uppercase">
-              Costo del evento
+              Costo de la decoración
             </h3>
           </div>
-          <p className="text-lg sm:text-xl font-semibold text-[#374151] tabular-nums">
+          <p className="text-2xl sm:text-3xl font-bold text-[#374151] tabular-nums text-center">
             {formatCurrency(summary.totalCost)}
           </p>
           <p className="text-[11px] text-[#9CA3AF] mt-2">
