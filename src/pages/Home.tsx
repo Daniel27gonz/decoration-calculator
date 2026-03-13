@@ -80,12 +80,11 @@ export default function Home() {
           
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             Calculadora para
-            <span className="text-gradient block">Decoradoras de Globos</span>
+            <span className="text-gradient block">Decoraciones</span>
           </h1>
           
           <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
-            Calcula el precio perfecto para tus decoraciones, 
-            visualiza tu ganancia y envía cotizaciones profesionales.
+            Calcula cuánto cobrar por tus decoraciones y cuánto vas a ganar en cada evento.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
