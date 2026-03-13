@@ -57,6 +57,25 @@ export default function Home() {
       {/* Hero Section - fills available space */}
       <section className="gradient-hero flex-1 flex items-center justify-center px-4 py-6">
         <div className="w-full max-w-4xl mx-auto text-center space-y-5">
+          {/* Menu hint - animated arrow pointing to hamburger */}
+          {showMenuHint && (
+            <div 
+              className="flex items-center gap-2 justify-start animate-bounce cursor-pointer"
+              onClick={() => {
+                setShowMenuHint(false);
+                if (isMobile) setOpenMobile(true);
+              }}
+            >
+              <ArrowUpLeft className="w-6 h-6 text-primary" />
+              <div className="flex items-center gap-2 bg-primary/10 border border-primary/30 rounded-full px-4 py-2">
+                <Menu className="w-4 h-4 text-primary" />
+                <span className="text-sm font-semibold text-primary">
+                  ¡Toca aquí para ver el menú!
+                </span>
+              </div>
+            </div>
+          )}
+
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card shadow-soft">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium">Calculadora para decoradoras</span>
