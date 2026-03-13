@@ -234,32 +234,9 @@ export default function History() {
                       )}
 
                       {/* Actions */}
-                      <div className="pt-3 border-t border-border space-y-3">
-                        {/* Main CTA row */}
-                        <div>
-                          <Button
-                            variant="gradient"
-                            size="sm"
-                            className="w-full h-11"
-                            onClick={() => handleViewImage(quote)}
-                          >
-                            <Share2 className="w-4 h-4 shrink-0" />
-                            <span>Compartir</span>
-                          </Button>
-                        </div>
-                        
-                        {/* Secondary actions - icon buttons for space efficiency */}
+                      <div className="pt-3 border-t border-border">
                         <div className="flex items-center justify-between">
                           <div className="flex gap-1">
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              className="h-9 w-9"
-                              onClick={() => handleViewImage(quote)}
-                              title="Ver cotización"
-                            >
-                              <Eye className="w-4 h-4" />
-                            </Button>
                             <Button
                               variant="ghost"
                               size="icon"
